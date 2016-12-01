@@ -11,7 +11,6 @@
 		22987BDD2F8C81A7F1898B2F3CD983C9 /* Pods-SnowGlobe_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F7778D8DF40585002ABAF4657C10AF51 /* Pods-SnowGlobe_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D0F3415FA0C88DA5DB17735DC8BDC31 /* Pods-SnowGlobe_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 748E27D7FA857EE5E98341F7BD3F07E9 /* Pods-SnowGlobe_Tests-dummy.m */; };
 		32D5C92FA2C655240A5A32E831AB9EE5 /* SnowGlobe-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AAF21FBA561EFD6E419B200101E2932 /* SnowGlobe-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		488AD4298FBA448F3139C0EC8CC334B2 /* SleighBells.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 14DECAF6C8457D48E7A590FF341B5B5A /* SleighBells.mp3 */; };
 		543F4A7D45052A086C8F9830D1DE8D5A /* CMMotionManager+shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B3A443BD923A56A60693309DEBB704 /* CMMotionManager+shared.swift */; };
 		5710F69D136D94E3BA9F2189114E2C83 /* flake2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDB56D210795BF8128DB1A828C0642D2 /* flake2@2x.png */; };
 		5A5AD6773D0CAD00BAFA10E03E9A331B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
@@ -52,7 +51,6 @@
 /* Begin PBXFileReference section */
 		051105771FE334B936E9F404C5763A0F /* Pods-SnowGlobe_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SnowGlobe_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0AAF21FBA561EFD6E419B200101E2932 /* SnowGlobe-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnowGlobe-umbrella.h"; sourceTree = "<group>"; };
-		14DECAF6C8457D48E7A590FF341B5B5A /* SleighBells.mp3 */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = audio.mp3; path = SleighBells.mp3; sourceTree = "<group>"; };
 		1E7F3FA8D6356508C486E476BF079C0C /* Pods-SnowGlobe_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SnowGlobe_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		205195AEC027CAD84E69298252814549 /* SnowGlobe-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnowGlobe-dummy.m"; sourceTree = "<group>"; };
 		2225868DE5844C7FEAECD1B0E4DFBF97 /* SnowGlobe.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnowGlobe.xcconfig; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 			children = (
 				CDB56D210795BF8128DB1A828C0642D2 /* flake2@2x.png */,
 				AA43D04CCE7AE7E1FB43B056BA10BD2F /* flake@2x.png */,
-				14DECAF6C8457D48E7A590FF341B5B5A /* SleighBells.mp3 */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -431,7 +428,6 @@
 			files = (
 				5710F69D136D94E3BA9F2189114E2C83 /* flake2@2x.png in Resources */,
 				D303426EDAC9097922B0D439553A00AD /* flake@2x.png in Resources */,
-				488AD4298FBA448F3139C0EC8CC334B2 /* SleighBells.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

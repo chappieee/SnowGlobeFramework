@@ -7,7 +7,6 @@
 
 import UIKit
 import CoreMotion
-import AudioToolbox
 
 private let lifetimeKey = "lifetime"
 
@@ -63,8 +62,6 @@ open class SnowGlobeView: UIView {
         }
     }
     
-    open var soundEffectsEnabled: Bool = true
-    
     /// default ligth snow flake image
     open class func lightSnowFlakeImage() -> (UIImage?) {
         if let image = UIImage(named: "flake") {
@@ -104,7 +101,6 @@ open class SnowGlobeView: UIView {
     
     deinit {
         self.shakeToSnow = false
-        AudioServicesDisposeSystemSoundID(sleighBellsSoundId)
     }
     
     //MARK: - Private
@@ -113,7 +109,6 @@ open class SnowGlobeView: UIView {
         Animates emitter's lifetime property to 1, causing emitter to start emitting
     */
     func startAnimating () {
-        playSoundIfNeeded()
         let animDuration = 0.1
         let anim = CABasicAnimation(keyPath: lifetimeKey)
         anim.fromValue = emitter.presentation()?.lifetime
@@ -138,10 +133,6 @@ open class SnowGlobeView: UIView {
         anim.setValue(animDuration, forKeyPath: "duration")
         emitter.add(anim, forKey: lifetimeKey)
         emitter.lifetime = 0.0
-        DispatchQueue.main.asyncAfter( deadline: DispatchTime.now() + Double(Int64(animDuration * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {[weak self] ()->() in
-            self?.shouldPlaySound = true
-        })
-
     }
     
     /// Queue that recieves accelerometer updates from CMMotionManager
@@ -215,31 +206,20 @@ open class SnowGlobeView: UIView {
     
     class func frameworkImage(named name: String?) -> (UIImage? ) {
         var image: UIImage? = nil
-        let frameworkBundle = Bundle(identifier: "uk.co.stringCode.SnowGlobe")
-        if let imagePath = frameworkBundle?.path(forResource: name, ofType: "png") {
-            image = UIImage(contentsOfFile: imagePath)
+        var bundle = Bundle(for: self.classForCoder())
+        if let resourcePath = bundle.path(forResource: "SnowGlobe", ofType: "bundle") {
+            if let resourcesBundle = Bundle(path: resourcePath) {
+                bundle = resourcesBundle
+            }
+        }
+        /*
+         if let imagePath = bundle.path(forResource: name, ofType: "png") {
+         image = UIImage(contentsOfFile: imagePath)
+         }
+         */
+        if let name = name {
+            image = UIImage(named: name, in: bundle, compatibleWith: nil)
         }
         return image
     }
-    
-    //MARK: Sound effects
-    
-    fileprivate var shouldPlaySound:Bool = true
-    
-    fileprivate func playSoundIfNeeded() {
-        if shouldPlaySound && soundEffectsEnabled {
-            shouldPlaySound = false
-            AudioServicesPlaySystemSound(sleighBellsSoundId);
-        }
-    }
-    
-    fileprivate lazy var sleighBellsSoundId: SystemSoundID = {
-        var soundId: SystemSoundID = 0
-        if let url = Bundle.main.url(forResource: "SleighBells", withExtension: "mp3") {
-            AudioServicesCreateSystemSoundID(url as CFURL, &soundId)
-        } else if let url = Bundle(identifier: "uk.co.stringCode.SnowGlobe")?.url(forResource: "SleighBells", withExtension: "mp3") {
-            AudioServicesCreateSystemSoundID(url as CFURL, &soundId)
-        }
-        return soundId
-    }()
 }
