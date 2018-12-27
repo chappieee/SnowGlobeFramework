@@ -145,11 +145,11 @@ open class SnowGlobeView: UIView {
 
     fileprivate func initialSetup() {
         backgroundColor = UIColor.clear
-        autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        autoresizingMask = [.flexibleWidth, .flexibleHeight]
         isUserInteractionEnabled = false
         emitter.emitterCells = [emitterCell]
-        emitter.emitterShape = kCAEmitterLayerLine
-        emitter.renderMode = kCAEmitterLayerOldestLast
+        emitter.emitterShape = .line
+        emitter.renderMode = .oldestLast
         emitter.lifetime = 0
     }
     

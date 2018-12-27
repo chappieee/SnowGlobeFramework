@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SnowGlobe"
-  s.version          = "2.1.3"
+  s.version          = "4.2.0"
   s.summary          = "Delightful / cheesy Christmas easter egg to. Shake iPhone to snow"
 
 # This description is used to generate tags and improve search results.
@@ -25,8 +25,7 @@ DESC
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "stringcode" => "michael@stringcode.co.uk" }
-  #s.source           = { :git => "https://github.com/stringcode86/SnowGlobeFramework.git", :tag => s.version.to_s }
-  s.source           = { :git => "https://github.com/chappieee/SnowGlobeFramework.git", :branch => 'master' }
+  s.source           = { :git => "https://github.com/chappieee/SnowGlobeFramework.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/stringcode'
 
   s.platform     = :ios, '8.0'
